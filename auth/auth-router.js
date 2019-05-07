@@ -38,4 +38,13 @@ router.post('/login', (req, res) => {
         });
 });
 
+router.get('/logout', (req, res) => {
+    if (req.session) {
+        
+    }
+    else {
+        res.end();
+    }
+});
+
 module.exports = router;
