@@ -40,10 +40,11 @@ router.post('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
     if (req.session) {
-        
-    }
-    else {
-        res.end();
+        req.session.destroy(err => {
+            err ? res.send('Error logging out') : res.send('Logging out');
+        });
+    } else {
+        res.send('Already logged out');
     }
 });
 
